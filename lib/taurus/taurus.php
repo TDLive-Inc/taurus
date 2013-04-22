@@ -36,7 +36,7 @@ class Taurus {
 		if(! file_get_contents("login/$username.txt")){
 			return false;
 		}
-		if(file_get_contents("login/$username.txt") == password_hash($password, PASSWORD_BCRYPT))){
+		if(file_get_contents("login/$username.txt") == password_hash($password, PASSWORD_BCRYPT)){
 			return true;
 		}
 		else{
