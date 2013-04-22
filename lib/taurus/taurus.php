@@ -47,7 +47,7 @@ class Taurus {
 		if( file_exists("login/$username.txt")){
 			return false;
 		}
-		if(! file_put_contents(crypt(constant('TAURUS_SALT') . $password)){
+		if(! file_put_contents(crypt(constant('TAURUS_SALT') . $password))){
 			return false;
 		}
 		return true;
