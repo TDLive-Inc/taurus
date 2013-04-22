@@ -90,15 +90,15 @@ class Taurus {
 		}
 		if(@isset($_GET['login'])){
 			if(@isset($_GET['username']) && $_POST['password']){
-				if(logIn($_POST['username'], $_POST['password'])){
+				if(logIn($_POST['user'], $_POST['pass'])){
 					$this->page_home($this->getInformation($_POST['username']));
 				}
 				else{
-					$this->page_login(constant("TAURUS_LOG_IN_INCORRECT"));
+					$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
 				}
 			}
 			else{
-				$this->page_login(constant("TAURUS_LOG_IN_INCOMPLETE"));
+				$this->pageLogin(constant("TAURUS_LOG_IN_INCOMPLETE"));
 			}
 		}
 	}
