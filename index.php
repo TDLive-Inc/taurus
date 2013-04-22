@@ -27,8 +27,11 @@ if( @isset($_GET['testdata'])){
 if(! @isset($_GET['pid']) && ! @isset($_GET['login'])){
 	$taurus->pageLoader(0);
 }
+elseif(@isset($_GET['pid'])){
+	$taurus->pageLoader($_GET['pid']);
+}
 else{
-	$taurus->pageLoader(0);
+	$taurus->pageLoader(-1);
 }
 
 ?>
