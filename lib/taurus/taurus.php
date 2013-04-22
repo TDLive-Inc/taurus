@@ -97,7 +97,7 @@ class Taurus {
 			}
 			else{
 				if($this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
-					$this->pageHome($this->getInformation($_POST['username']);
+					$this->pageHome($this->getInformation($_POST['username']));
 				}
 				else{
 					$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
