@@ -90,7 +90,7 @@ class Taurus {
 		}
 		if(@isset($_GET['login'])){
 			if(! @isset($_GET['username']) && !@isset($_POST['password'])){
-				if(logIn($_POST['user'], $_POST['pass'])){
+				if($this->logIn($_POST['user'], $_POST['pass'])){
 					$this->page_home($this->getInformation($_POST['username']));
 				}
 				else{
