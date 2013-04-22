@@ -30,6 +30,7 @@ class Taurus {
 			die("Translation file is nonexistent. Please install the translation file(s) of the language you would like to translate to into the translations folder.");
 		}
 		include("translation/" . constant("TAURUS_LANG") . ".php");
+		new Translation();
 	}
 	function logIn($username, $password){
 		if(! file_get_contents("login/$username.txt")){
