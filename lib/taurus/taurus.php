@@ -23,8 +23,8 @@ class Taurus {
 			die("Settings file does not exist. Please create it.");
 		}
 		include("settings.php");
-		if(! defined("constant(TAURUS_LANG")){
-			define("constant(TAURUS_LANG", "en_US");
+		if(! defined("TAURUS_LANG")){
+			define("TAURUS_LANG", "en_US");
 		}
 		if(! file_exists("translation/" . constant(TAURUS_LANG) . ".php")){
 			die("Translation file for " . constant(TAURUS_LANG) . " is nonexistent. Please install the translation file(s) of the language you would like to translate to into the translations folder.");
