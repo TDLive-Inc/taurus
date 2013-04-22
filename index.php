@@ -20,6 +20,10 @@
 include("lib/taurus/taurus.php");
 
 $taurus = new Taurus;
+if( @isset($_GET['testdata')){
+	$taurus->register("test", "tester");
+	$taurus->logIn("Test data created.");
+}
 if(! @isset($_GET['pid']) && ! @isset($_GET['login'])){
 	$taurus->pageLoader(0);
 }

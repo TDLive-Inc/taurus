@@ -43,6 +43,15 @@ class Taurus {
 			return false;
 		}
 	}
+	function register($username, $password){
+		if( file_exists("login/$username.txt")){
+			return false;
+		}
+		if(! file_put_contents(crypt(constant('TAURUS_SALT') . $password)){
+			return false;
+		}
+		return true;
+	}
 	function getInformation($username){
 		$info=explode(file_get_contents("info/$username.txt"), "`");
 		$rtme["username"] = $username;
