@@ -59,7 +59,7 @@ class Taurus {
 		<title>' . constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN") . '</title>
 	</head>
 	<body>
-		<center><p align="center"><h1>' . constant("TAURUS_NAME") . '</h1><h2>' . constant("TAURUS_LOG_IN") . '</h1></p><br>';
+		<center><p align="center"><h1>' . constant("TAURUS_NAME") . '</h1><h2>' . constant("TAURUS_LOG_IN") . '</h2><i>' . constant("TAURUS_MOTTO") . '</p><br>';
 		if(isset($error)) {
 			echo '<font color="red">' . $error . '</font>';
 		}

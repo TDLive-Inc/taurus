@@ -24,6 +24,7 @@ class Translation extends Taurus {
 		define('TAURUS_LOG_IN', 'Log in');
 		define('TAURUS_LOG_IN_INCORRECT', 'Login incorrect!!');
 		define('TAURUS_LOG_IN_INCOMPLETE', 'Login form incomplete. Please complete this form and try again.');
+		define('TAURUS_MOTTO', 'All your social networking in one place.');
 	}
 }
 ?>
