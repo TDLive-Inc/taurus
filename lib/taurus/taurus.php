@@ -43,7 +43,7 @@ class Taurus {
 			return false;
 		}
 	}
-	function register($username, $password){
+	function register($username, $password, $realname){
 		if( file_exists("login/$username.txt")){
 			return false;
 		}
@@ -85,14 +85,26 @@ class Taurus {
 </html>';
 		exit;
 	}
+	function pageHome($info){
+	}
 	function pageLoader($page_id){
 		if($page_id == 0){
-			@$this->pageLogin();
+			if(! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
+				@$this->pageLogin();
+			}
+			else{
+				if($this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
+					$this->pageHome($this->getInformation($_POST['username']);
+				}
+				else{
+					$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
+				}
+			}
 		}
 		if(@isset($_GET['login'])){
 			if(! @isset($_GET['username']) && !@isset($_POST['password'])){
 				if($this->logIn($_POST['user'], $_POST['pass'])){
-					$this->page_home($this->getInformation($_POST['username']));
+					$this->pageHome($this->getInformation($_POST['username']));
 				}
 				else{
 					$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
