@@ -21,11 +21,16 @@ include("lib/taurus/taurus.php");
 
 $taurus = new Taurus;
 if( @isset($_GET['testdata'])){
-	$taurus->register("test", "tester");
+	$taurus->register("test", "tester", "Taurus Test");
 	$taurus->pageLogin("Test data created.");
 }
 if(! @isset($_GET['pid']) && ! @isset($_GET['login'])){
-	$taurus->pageLoader(0);
+	if(! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
+		$taurus->pageLoader(0);
+	}
+	else{
+		$taurus->pageLoader(1);
+	}
 }
 elseif(@isset($_GET['pid'])){
 	$taurus->pageLoader($_GET['pid']);
