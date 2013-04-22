@@ -53,13 +53,14 @@ class Taurus {
 		return file_get_contents("posts/$id.txt");
 	}
 	function pageLogin($error){
-		echo '
+		echo "
 <html>
 	<head>
-		<title>' . constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN") . '</title>
+		<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
+		<title>" . constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN") . '</title>
 	</head>
 	<body>
-		<center><p align="center"><h1>' . constant("TAURUS_NAME") . '</h1><b><i>' . constant("TAURUS_MOTTO") . '</i></b></p><h2>' . constant("TAURUS_LOG_IN") . '</h2><br>';
+		<center><p align="center" style="font-face: Bubblegum Sans;"><h1>' . constant("TAURUS_NAME") . '</h1><b><i>' . constant("TAURUS_MOTTO") . '</i></b></p><h2>' . constant("TAURUS_LOG_IN") . '</h2><br>';
 		if(isset($error)) {
 			echo '<font color="red">' . $error . '</font>';
 		}
