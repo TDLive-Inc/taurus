@@ -26,8 +26,8 @@ class Taurus {
 		if(! defined("TAURUS_LANG")){
 			define("TAURUS_LANG", "en_US");
 		}
-		if(! file_exists("translation/" . constant(TAURUS_LANG) . ".php")){
-			die("Translation file for " . constant(TAURUS_LANG) . " is nonexistent. Please install the translation file(s) of the language you would like to translate to into the translations folder.");
+		if(! file_exists("translation/en_US.php")){
+			die("Translation file is nonexistent. Please install the translation file(s) of the language you would like to translate to into the translations folder.");
 		}
 		include("translation/" . constant(TAURUS_LANG) . ".php");
 	}
