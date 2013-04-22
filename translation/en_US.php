@@ -20,6 +20,7 @@
 class Translation extends Taurus {
 	function __construct(){
 		define('TAURUS_TRANSLATION_VALUE', 'VALUE');
+		define('TAURUS_NAME', 'Taurus');
 	}
 }
 ?>
