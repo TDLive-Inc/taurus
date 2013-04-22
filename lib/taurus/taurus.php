@@ -104,7 +104,7 @@ class Taurus {
 				}
 			}
 		}
-		if(@isset($_GET['login'])){
+		if(@isset($_GET['login']) && ! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
 			if(! @isset($_GET['username']) && !@isset($_POST['password'])){
 				if($this->logIn($_POST['user'], $_POST['pass'])){
 					setcookie("user", $_POST['user']);
