@@ -29,13 +29,13 @@ class Taurus {
 		if(! file_exists("translation/en_US.php")){
 			die("Translation file is nonexistent. Please install the translation file(s) of the language you would like to translate to into the translations folder.");
 		}
-		include("translation/" . constant(TAURUS_LANG) . ".php");
+		include("translation/" constant("TAURUS_LANG") . ".php");
 	}
 	function logIn($username, $password){
 		if(! file_get_contents("login/$username.txt")){
 			return false;
 		}
-		if(file_get_contents("login/$username.txt") == crypt(constant(TAURUS_SALT) . $password)){
+		if(file_get_contents("login/$username.txt") == crypt(constant("TAURUS_SALT") . $password)){
 			return true;
 		}
 		else{
@@ -55,10 +55,10 @@ class Taurus {
 		echo '
 <html>
 	<head>
-		<title>' . constant(TAURUS_NAME) . ' / ' . constant(TAURUS_LOG_IN) . '</title>
+		<title>' . constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN") . '</title>
 	</head>
 	<body>
-		<center><p align="center"><h1>' . constant(TAURUS_NAME) . '</h1><h2>' . constant(TAURUS_LOG_IN) . '</h1></p><br>';
+		<center><p align="center"><h1>' . constant("TAURUS_NAME") . '</h1><h2>' . constant("TAURUS_LOG_IN") . '</h1></p><br>';
 		if(isset($error)) {
 			echo '<font color="red">' . $error . '</font>';
 		}
@@ -83,11 +83,11 @@ class Taurus {
 					$this->page_home($this->getInformation($_POST['username']));
 				}
 				else{
-					$this->page_login(constant(TAURUS_LOG_IN_INCORRECT));
+					$this->page_login(constant("TAURUS_LOG_IN_INCORRECT"));
 				}
 			}
 			else{
-				$this->page_login(constant(TAURUS_LOG_IN_INCOMPLETE));
+				$this->page_login(constant("TAURUS_LOG_IN_INCOMPLETE"));
 			}
 		}
 	}
