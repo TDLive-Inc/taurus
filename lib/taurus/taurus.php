@@ -17,6 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+require('lib/phpass/PasswordHash.php');
+
 class Taurus {
 	function __construct(){
 		if(! file_exists("settings.php")){
@@ -33,13 +35,11 @@ class Taurus {
 		new Translation();
 	}
 	function logIn($username, $password){
-		if(! file_get_contents("login/$username.txt")){
-			return false;
-		}
-		if(file_get_contents("login/$username.txt") == password_hash($password, PASSWORD_BCRYPT)){
+		$hash=new PasswordHash(8, false);
+		if ($hash->CheckPassword($password, file_get_contents("login/$username"))) {
 			return true;
 		}
-		else{
+		else {
 			return false;
 		}
 	}
@@ -47,7 +47,8 @@ class Taurus {
 		if( file_exists("login/$username.txt")){
 			return false;
 		}
-		if(! file_put_contents("login/$username.txt", password_hash($password, PASSWORD_BCRYPT))){
+		$hash=new PasswordHash(8, false);
+		if(! file_put_contents("login/$username.txt", $hash->HashPassword($password))){
 			return false;
 		}
 		return true;
