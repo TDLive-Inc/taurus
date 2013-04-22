@@ -17,15 +17,25 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-include("settings.php");
-
 class Taurus {
-	
+	function __construct(){
+		if(! file_exists("settings.php")){
+			die("Settings file does not exist. Please create it.");
+		}
+		include("settings.php");
+		if(! defined("TAURUS_LANG")){
+			define("TAURUS_LANG", "en_US");
+		}
+		if(! file_exists("translation/" . TAURUS_LANG . ".php"){
+			die("Translation file for " . TAURUS_LANG . " is nonexistent. Please install the translation file(s) of the language you would like to translate to into the translations folder.");
+		}
+		include("translation/" . TAURUS_LANG . ".php");
+	}
 	function logIn($username, $password){
 		if(! file_get_contents("login/$username.txt")){
 			return false;
 		}
-		if(file_get_contents("login/$username.txt") == crypt(SALT . $password)){
+		if(file_get_contents("login/$username.txt") == crypt(TAURUS_SALT . $password)){
 			return true;
 		}
 		else{
@@ -45,10 +55,10 @@ class Taurus {
 		echo '
 <html>
 	<head>
-		<title>Taurus / Log In</title>
+		<title>' . TAURUS_NAME . ' / ' . TAURUS_LOG_IN . '</title>
 	</head>
 	<body>
-		<center><p align="center"><h1>Taurus</h1><h2>Log in</h1></p><br>';
+		<center><p align="center"><h1>' . TAURUS_NAME . '</h1><h2>' . TAURUS_LOG_IN . '</h1></p><br>';
 		if(isset($error)) {
 			echo '<font color="red">' . $error . '</font>';
 		}
@@ -73,11 +83,11 @@ class Taurus {
 					$this->page_home($this->getInformation($_POST['username']));
 				}
 				else{
-					$this->page_login("Incorrect username/password!!");
+					$this->page_login(TAURUS_LOG_IN_INCORRECT);
 				}
 			}
 			else{
-				$this->page_login("Please fill out all of the fields.");
+				$this->page_login(TAURUS_LOG_IN_INCOMPLETE);
 			}
 		}
 	}

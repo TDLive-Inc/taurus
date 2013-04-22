@@ -18,6 +18,6 @@
 */
 
 define('TAURUS_LANG', 'en_US');
-define('SALT', "fh47329248");
+define('TAURUS_SALT', "fh47329248");
 
 ?>
