@@ -110,7 +110,7 @@ class Taurus {
 					setcookie("user", $_POST['user']);
 					//TODO: hash this
 					setcookie("user", $_POST['pass']);
-					$this->pageHome($this->getInformation($_POST['username']));
+					$this->pageHome($this->getInformation($_POST['user']));
 				}
 				else{
 					$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
