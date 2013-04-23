@@ -20,10 +20,10 @@
 class Translation extends Taurus {
 	function __construct(){
 		define('TAURUS_TRANSLATION_VALUE', 'VALUE');
-		define('TAURUS_NAME', 'Tauro');
-		define('TAURUS_LOGIN_MESSAGE', 'iniciar la sesión');
-		define('TAURUS_REGISTER_MESSAGE', 'registro');
-		define('TAURUS_MOTTO', 'Todas tus redes sociales en un solo lugar.');	
+		define('TAURUS_NAME', 'Taureau');
+		define('TAURUS_LOGIN_MESSAGE', 'Connexion');
+		define('TAURUS_REGISTER_MESSAGE', 'Inscrivez-vous);
+		define('TAURUS_MOTTO', 'Toutes vos réseaux sociaux en un seul endroit.');	
 	}
 }
 ?>
