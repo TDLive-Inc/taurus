@@ -21,9 +21,10 @@ class Translation extends Taurus {
 	function __construct(){
 		define('TAURUS_TRANSLATION_VALUE', 'VALUE');
 		define('TAURUS_NAME', 'Tauro');
-		define('TAURUS_LOG_IN_INCORRECT', 'Login incorrect!!');
-		define('TAURUS_LOG_IN_INCOMPLETE', 'Ingresa forma incompleta. Por favor complete este formulario y vuelva a intentarlo. ');
-		define('TAURUS_MOTTO', 'Todas tus redes sociales en un solo lugar.');	
+		define('TAURUS_LOG_IN', 'iniciar la sesión');
+		define('TAURUS_LOG_IN_INCORRECT', 'Iniciar sesión incorrectos!');
+		define('TAURUS_LOG_IN_INCOMPLETE', 'Iniciar sesión de manera incompleta. Por favor complete este formulario y vuelva a intentarlo.');
+		define('TAURUS_MOTTO', 'Todas tus redes sociales en un solo lugar.');
 	}
 }
 ?>
