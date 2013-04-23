@@ -116,7 +116,7 @@ class Taurus {
 				if($this->logIn($_POST['user'], $_POST['pass'])){
 					setcookie("user", $_POST['user']);
 					//TODO: hash this
-					setcookie("user", $_POST['pass']);
+					setcookie("pass", $_POST['pass']);
 					$this->pageHome($this->getInformation($_POST['user']));
 				}
 				else{
