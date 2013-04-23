@@ -98,6 +98,7 @@ class Taurus {
 <?php
 	}
 	function page404(){
+		header("HTTP/1.1 404 Not Found");
 ?>
 <html>
 	<head>
