@@ -21,9 +21,9 @@ class Translation extends Taurus {
 	function __construct(){
 		define('TAURUS_TRANSLATION_VALUE', 'VALUE');
 		define('TAURUS_NAME', 'Taureau');
-		define('TAURUS_LOGIN_MESSAGE', 'Connexion');
-		define('TAURUS_REGISTER_MESSAGE', 'Inscrivez-vous);
-		define('TAURUS_MOTTO', 'Toutes vos réseaux sociaux en un seul endroit.');	
+		define('TAURUS_LOG_IN_INCORRECT', 'Login incorrect!!');
+		define('TAURUS_LOG_IN_INCOMPLETE', 'Login form incomplete. Please complete this form and try again.');
+		define('TAURUS_MOTTO', "Toutes vos réseaux sociaux en un seul endroit.");	
 	}
 }
 ?>
