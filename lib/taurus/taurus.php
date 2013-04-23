@@ -97,6 +97,22 @@ class Taurus {
 </html>
 <?php
 	}
+	function page404(){
+?>
+<html>
+	<head>
+		<title><?php echo constant("TAURUS_NAME"); ?> / 404 Not Found</title>
+	</head>
+	<body>
+	<p align="center"><center>
+		<h1>404 Not Found</h1>
+		<?php echo constant("TAURUS_404TEXT"); ?><br><br>
+		<a href="?pid=1"><?php echo constant("TAURUS_404LINK"); ?></a>
+	</p></center>
+	</body>
+</html>
+<?php
+	}
 	function pageLoader($page_id){
 		if($page_id == 0){
 			if(! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
@@ -111,7 +127,7 @@ class Taurus {
 				}
 			}
 		}
-		if(@isset($_GET['login']) && ! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
+		elseif(@isset($_GET['login']) && ! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
 			if(! @isset($_GET['username']) && !@isset($_POST['password'])){
 				if($this->logIn($_POST['user'], $_POST['pass'])){
 					setcookie("user", $_POST['user']);
@@ -127,13 +143,16 @@ class Taurus {
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCOMPLETE"));
 			}
 		}
-		if($page_id == 1){
+		elseif($page_id == 1){
 			if(! $this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
 			}
 			else{
 				$this->pageHome($this->getInformation($_COOKIE['user']));
 			}
+		}
+		else{
+			$this->page404();
 		}
 	}
 }
