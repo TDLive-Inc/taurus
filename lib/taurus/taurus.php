@@ -115,7 +115,7 @@ class Taurus {
 <?php
 	}
 	function pageLoader($page_id){
-		if($page_id == 0){
+		if($page_id == 0 || $page_id == "index"){
 			if(! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
 				@$this->pageLogin();
 			}
@@ -144,7 +144,7 @@ class Taurus {
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCOMPLETE"));
 			}
 		}
-		elseif($page_id == 1){
+		elseif($page_id == 1 || $page_id == "home"){
 			if(! $this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
 			}
