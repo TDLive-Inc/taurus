@@ -127,5 +127,13 @@ class Taurus {
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCOMPLETE"));
 			}
 		}
+		if($page_id == 1){
+			if(! $this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
+				$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
+			}
+			else{
+				$this->pageHome($this->getInformation($_COOKIE['user']));
+			}
+		}
 	}
 }
