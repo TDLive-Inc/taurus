@@ -89,6 +89,13 @@ class Taurus {
 		exit;
 	}
 	function pageHome($info){
+?>
+<html>
+	<head>
+		<title><?php echo constant("TAURUS_NAME") . " / " . constant("TAURUS_HOME"); ?></title>
+	</head>
+</html>
+<?php
 	}
 	function pageLoader($page_id){
 		if($page_id == 0){
