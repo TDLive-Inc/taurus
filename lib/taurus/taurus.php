@@ -36,7 +36,7 @@ class Taurus {
 	}
 	function logIn($username, $password){
 		$hash=new PasswordHash(8, false);
-		if ($hash->CheckPassword($password, file_get_contents("login/$username.txt"))) {
+		if ($hash->CheckPassword($password, @file_get_contents("login/$username.txt"))) {
 			return true;
 		}
 		else {
