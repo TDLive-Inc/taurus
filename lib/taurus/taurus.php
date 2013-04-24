@@ -69,7 +69,7 @@ class Taurus {
 		echo "
 <html>
 	<head>
-		<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
+				<link href='?pid=2' rel='stylesheet' type='text/css' />
 		<title>" . constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN") . '</title>
 	</head>
 	<body>
@@ -102,6 +102,7 @@ class Taurus {
 ?>
 <html>
 	<head>
+		<link href="?pid=2" rel="stylesheet" type="text/css" />
 		<title><?php echo constant("TAURUS_NAME"); ?> / 404 Not Found</title>
 	</head>
 	<body>
@@ -114,8 +115,24 @@ class Taurus {
 </html>
 <?php
 	}
+	function pageCSS(){
+?>
+@import url('http://fonts.googleapis.com/css?family=Bubblegum+Sans');
+body {
+	background-color:blue;
+	font-family: 'Bubblegum Sans';
+	color: white;
+	background-image:url('img/stars.png');
+}
+<?php
+		exit;
+	}
 	function pageLoader($page_id){
-		if($page_id == 0 || $page_id == "index"){
+		if($page_id == 2){
+			$this->pageCSS();
+			exit;
+		}
+		elseif($page_id == 0){
 			if(! @isset($_COOKIE['user']) && ! @isset($_COOKIE['pass'])){
 				@$this->pageLogin();
 			}
@@ -144,7 +161,7 @@ class Taurus {
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCOMPLETE"));
 			}
 		}
-		elseif($page_id == 1 || $page_id == "home"){
+		elseif($page_id == 1){
 			if(! $this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
 			}
