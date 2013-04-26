@@ -100,7 +100,7 @@ class Taurus {
 			<a href="?pid=1">
 				<img src="img/logos/97x46.png" alt="Project Taurus"></img>
 			</a>
-			 | <a href="?pid=4">Log out</a>
+			 | <a href="?pid=4"><?php echo constant("TAURUS_LOGOUT"); ?></a>
 		</div>
 		<p align="center">
 			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
