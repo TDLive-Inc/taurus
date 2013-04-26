@@ -25,6 +25,10 @@ class Translation extends Taurus {
 		define('TAURUS_LOG_IN_INCORRECT', 'Iniciar sesión incorrectos!');
 		define('TAURUS_LOG_IN_INCOMPLETE', 'Iniciar sesión de manera incompleta. Por favor complete este formulario y vuelva a intentarlo.');
 		define('TAURUS_MOTTO', 'Todas tus redes sociales en un solo lugar.');
+		define('TAURUS_HOME', 'casa');
+		define('TAURUS_404TEXT', "Lo sentimos, pero la página que buscas no se ha encontrado.");
+		define('TAURUS_404LINK', 'Volver a la página principal');
+		define('TAURUS_LOGOUT', 'finalizar la sesión');
 	}
 }
 ?>
