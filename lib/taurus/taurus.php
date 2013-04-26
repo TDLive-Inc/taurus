@@ -92,8 +92,20 @@ class Taurus {
 ?>
 <html>
 	<head>
+		<link href="?pid=2" rel="stylesheet" type="text/css">
 		<title><?php echo constant("TAURUS_NAME") . " / " . constant("TAURUS_HOME"); ?></title>
 	</head>
+	<body>
+		<div style="align: center;" id="navbar">
+			<a href="?pid=1">
+				<img src="img/logos/97x46.png" alt="Project Taurus"></img>
+			</a>
+			 | <a href="?pid=4">Log out</a>
+		</div>
+		<p align="center">
+			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
+		</p>
+	</body>
 </html>
 <?php
 	}
@@ -124,7 +136,16 @@ body {
 	color: white;
 	background-image:url('img/stars.png');
 }
+navbar {
+	position:fixed;
+}
 <?php
+		exit;
+	}
+	function pageLogout(){
+		setcookie("user", "", time()-3600);
+		setcookie("pass", "", time()-3600);
+		header("Location: ?pid=0");
 		exit;
 	}
 	function pageLoader($page_id){
@@ -162,12 +183,16 @@ body {
 			}
 		}
 		elseif($page_id == 1){
-			if(! $this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
+			if(! @$this->logIn($_COOKIE['user'], $_COOKIE['pass'])){
 				$this->pageLogin(constant("TAURUS_LOG_IN_INCORRECT"));
 			}
 			else{
 				$this->pageHome($this->getInformation($_COOKIE['user']));
 			}
+		}
+		elseif($page_id == 4){
+			$this->pageLogout();
+			exit;
 		}
 		else{
 			$this->page404();
