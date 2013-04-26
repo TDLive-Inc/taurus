@@ -28,6 +28,7 @@ class Translation extends Taurus {
 		define('TAURUS_HOME', 'Home');
 		define('TAURUS_404TEXT', "We're sorry, but the page you were looking for wasn't found.");
 		define('TAURUS_404LINK', 'Go back to the home page');
+		define('TAURUS_LOGOUT', 'Log out');
 	}
 }
 ?>
