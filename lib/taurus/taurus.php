@@ -66,18 +66,17 @@ class Taurus {
 		return file_get_contents("posts/$id.txt");
 	}
 	function pageLogin($error){
-		echo "
+?>
 <html>
 	<head>
 				<link href='?pid=2' rel='stylesheet' type='text/css' />
-		<title>" . constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN") . '</title>
+		<title><?php echo constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN"); ?></title>
 	</head>
 	<body>
 		<center><p align="center" style="font-family: ' . "'Bubblegum Sans'" . ', cursive;"><h1><img src="img/logos/288x135.png"></h1><b><i>' . constant("TAURUS_MOTTO") . '</i></b></p><h2>' . constant("TAURUS_LOG_IN") . '</h2><br>';
-		if(isset($error)) {
+		<?php if(isset($error)) {
 			echo '<font color="red">' . $error . '</font>';
-		}
-		echo '
+		} ?>
 			<form action="?login=true" method="POST">
 				<input type="text" name="user" />
 				<input type="password" name="pass" />
@@ -85,7 +84,7 @@ class Taurus {
 			</form>
 		</center>
 	</body>
-</html>';
+</html><?php
 		exit;
 	}
 	function pageHome($info){
