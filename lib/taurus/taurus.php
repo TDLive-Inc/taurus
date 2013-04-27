@@ -18,6 +18,7 @@
 */
 
 require('lib/phpass/PasswordHash.php');
+require('lib/facebook/facebook.php');
 
 class Taurus {
 	function __construct(){
@@ -137,6 +138,7 @@ body {
 }
 navbar {
 	position:fixed;
+	background-color: #86abd9;
 }
 <?php
 		exit;

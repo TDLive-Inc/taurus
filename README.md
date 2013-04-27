@@ -13,6 +13,11 @@ TODO
 
 All of Taurus' configuration settings are in settings.php. Documentation for settings.php is coming soon...
 
-## Development status (as of 4/23/13)
+## Development status (as of 4/27/13)
 
 We are still **very** unstable. Do not run Taurus in a production environment. Use at your own risk if you do.
+
+## Credits
+
+* PHPass is in the public domain. [Web site](http://www.openwall.com/phpass/)
+* The Facebook PHP SDK is licensed under the [Apache License](http://www.apache.org/licenses/LICENSE-2.0.html). [Web site](http://github.com/facebook/facebook-php-sdk)
