@@ -118,9 +118,9 @@ class Taurus {
 		<p align="center">
 			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
 		</p>
-		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){
-		?>
+		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){ ?>
 		<a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){ ?><a href="<?php $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ ?>Signed in as <?php $fbme = new TaurusFacebook(); echo $fbme->username; } ?>.
+		<?php } ?>
 	</body>
 </html>
 <?php
