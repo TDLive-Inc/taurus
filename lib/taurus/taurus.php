@@ -27,7 +27,7 @@ class Taurus {
 		if(! file_exists("settings.php")){
 			die("Settings file does not exist. Please create it.");
 		}
-		if( constant('FACEBOOK_ENABLED') && ! file_exists("keys/facebook.php")){
+		if( constant('TAURUS_FACEBOOK_ENABLED') && ! file_exists("keys/facebook.php")){
 			die("Please define your keys in the facebook.php file or set FACEBOOK_ENABLED in settings.php to false.");
 		}
 		include("settings.php");
@@ -39,7 +39,7 @@ class Taurus {
 		}
 		include("translation/" . constant("TAURUS_LANG") . ".php");
 		new Translation();
-		if(constant('FACEBOOK_ENABLED')){
+		if(constant('TAURUS_FACEBOOK_ENABLED')){
 			new FacebookKeys();
 			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
 		}
