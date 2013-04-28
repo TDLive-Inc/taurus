@@ -21,9 +21,14 @@ require('lib/phpass/PasswordHash.php');
 require('lib/facebook/facebook.php');
 
 class Taurus {
+	private $fb_config;
+	
 	function __construct(){
 		if(! file_exists("settings.php")){
 			die("Settings file does not exist. Please create it.");
+		}
+		if( constant('FACEBOOK_ENABLED') && ! file_exists("keys/facebook.php")){
+			die("Please define your keys in the facebook.php file or set FACEBOOK_ENABLED in settings.php to false.");
 		}
 		include("settings.php");
 		if(! defined("TAURUS_LANG")){
@@ -34,6 +39,10 @@ class Taurus {
 		}
 		include("translation/" . constant("TAURUS_LANG") . ".php");
 		new Translation();
+		if(constant('FACEBOOK_ENABLED')){
+			new FacebookKeys();
+			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
+		}
 	}
 	function logIn($username, $password){
 		$hash=new PasswordHash(8, false);
@@ -105,6 +114,7 @@ class Taurus {
 		<p align="center">
 			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
 		</p>
+		<a href="http://facebook.com/">Facebook</a> | <a href="
 	</body>
 </html>
 <?php
