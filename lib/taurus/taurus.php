@@ -22,6 +22,8 @@ require('lib/facebook/facebook.php');
 
 class Taurus {
 	private $fb_config;
+	private $fb;
+	private $fb_params;
 	
 	function __construct(){
 		if(! file_exists("settings.php")){
@@ -42,6 +44,8 @@ class Taurus {
 		if(constant('TAURUS_FACEBOOK_ENABLED')){
 			new FacebookKeys();
 			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
+			$this->fb = new Facebook($this->fb_config);
+			$this->fb_params = array("scope" => "publish_actions id name first_name last_name link username gender locale age_range");
 		}
 	}
 	function logIn($username, $password){
@@ -114,7 +118,9 @@ class Taurus {
 		<p align="center">
 			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
 		</p>
-		<a href="http://facebook.com/">Facebook</a> | <a href="
+		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){
+		?>
+		<a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){ ?><a href="<?php $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ ?>Signed in as <?php $fbme = new TaurusFacebook(); echo $fbme->username; ?>.
 	</body>
 </html>
 <?php
