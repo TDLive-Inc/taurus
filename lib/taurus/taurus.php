@@ -46,7 +46,7 @@ class Taurus {
 			new FacebookKeys();
 			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
 			$this->fb = new Facebook($this->fb_config);
-			$this->fb_params = array("scope" => "publish_actions id name first_name last_name link username gender locale age_range");
+			$this->fb_params = array("scope" => "publish_actions");
 		}
 	}
 	function logIn($username, $password){
