@@ -29,10 +29,10 @@ class Taurus {
 		if(! file_exists("settings.php")){
 			die("Settings file does not exist. Please create it.");
 		}
-		if( constant('TAURUS_FACEBOOK_ENABLED') && ! file_exists("keys/facebook.php")){
+		if( @constant('TAURUS_FACEBOOK_ENABLED') && ! file_exists("keys/facebook.php")){
 			die("Please define your keys in the facebook.php file or set FACEBOOK_ENABLED in settings.php to false.");
 		}
-		include("settings.php");
+		require("settings.php");
 		if(! defined("TAURUS_LANG")){
 			define("TAURUS_LANG", "en_US");
 		}
@@ -42,6 +42,7 @@ class Taurus {
 		include("translation/" . constant("TAURUS_LANG") . ".php");
 		new Translation();
 		if(constant('TAURUS_FACEBOOK_ENABLED')){
+			include("keys/facebook.php");
 			new FacebookKeys();
 			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
 			$this->fb = new Facebook($this->fb_config);
