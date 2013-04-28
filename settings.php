@@ -19,5 +19,6 @@
 
 define('TAURUS_LANG', 'en_US');
 define('TAURUS_SALT', "fh47329248");
+define('TAURUS_FILE_UPLOADS', true);
 
 ?>

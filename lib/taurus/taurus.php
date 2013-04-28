@@ -74,7 +74,7 @@ class Taurus {
 		<title><?php echo constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN"); ?></title>
 	</head>
 	<body>
-		<center><p align="center" style="font-family: ' . "'Bubblegum Sans'" . ', cursive;"><h1><img src="img/logos/288x135.png"></h1><b><i>' . constant("TAURUS_MOTTO") . '</i></b></p><h2>' . constant("TAURUS_LOG_IN") . '</h2><br>';
+		<center><p align="center" style="font-family: ' . "'Bubblegum Sans'" . ', cursive;"><h1><img src="img/logos/288x135.png"></h1><b><i><?php echo constant("TAURUS_MOTTO"); ?></i></b></p><h2><?php echo constant("TAURUS_LOG_IN"); ?></h2><br>
 		<?php if(isset($error)) {
 			echo '<font color="red">' . $error . '</font>';
 		} ?>
