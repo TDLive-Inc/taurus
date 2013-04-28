@@ -21,18 +21,28 @@ require('lib/phpass/PasswordHash.php');
 require('lib/facebook/facebook.php');
 
 class Taurus {
-	private $fb_config;
+
+	/* Facebook */
 	private $fb;
+	private $fb_config;
 	private $fb_params;
+	private $fb_username;
 	
-	function __construct(){
+	function __construct($fr=true){
 		if(! file_exists("settings.php")){
 			die("Settings file does not exist. Please create it.");
 		}
+		require("settings.php");
 		if( @constant('TAURUS_FACEBOOK_ENABLED') && ! file_exists("keys/facebook.php")){
 			die("Please define your keys in the facebook.php file or set FACEBOOK_ENABLED in settings.php to false.");
 		}
-		require("settings.php");
+		if(constant('TAURUS_FACEBOOK_ENABLED')){
+			include("keys/facebook.php");
+			new FacebookKeys();
+			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
+			$this->fb = new Facebook($this->fb_config);
+			$this->fb_params = array("scope" => "publish_actions");
+		}
 		if(! defined("TAURUS_LANG")){
 			define("TAURUS_LANG", "en_US");
 		}
@@ -41,14 +51,6 @@ class Taurus {
 		}
 		include("translation/" . constant("TAURUS_LANG") . ".php");
 		new Translation();
-		if(constant('TAURUS_FACEBOOK_ENABLED')){
-			include("keys/facebook.php");
-			require("lib/taurus/taurus.facebook.php");
-			new FacebookKeys();
-			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
-			$this->fb = new Facebook($this->fb_config);
-			$this->fb_params = array("scope" => "publish_actions");
-		}
 	}
 	function logIn($username, $password){
 		$hash=new PasswordHash(8, false);
@@ -120,8 +122,8 @@ class Taurus {
 		<p align="center">
 			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
 		</p>
-		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){ ?>
-		<a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){ ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ ?>Signed in as <?php $fbme = new TaurusFacebook(); echo $fbme->username; } ?>.
+		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){ $this->fbsetup(); ?>
+		<a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){ ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ ?>Signed in as <?php echo $this->fb_username; } ?>.
 		<?php } ?>
 	</body>
 </html>
@@ -217,4 +219,9 @@ navbar {
 			$this->page404();
 		}
 	}
+	function fbsetup(){
+		$user = $this->fb->api('/me');
+		$this->fb_username = $user['username'];
+	}
 }
+
