@@ -43,6 +43,7 @@ class Taurus {
 		new Translation();
 		if(constant('TAURUS_FACEBOOK_ENABLED')){
 			include("keys/facebook.php");
+			require("lib/taurus/taurus.facebook.php");
 			new FacebookKeys();
 			$this->fb_config = array("appId" => constant("TAURUS_FACEBOOK_APPID"), "secret" => constant("TAURUS_FACEBOOK_SECRET"), "fileUploads" => constant("TAURUS_FILE_UPLOADS"));
 			$this->fb = new Facebook($this->fb_config);
