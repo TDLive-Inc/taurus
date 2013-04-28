@@ -25,6 +25,8 @@ class Taurus {
 	/* Facebook */
 	private $fb;
 	private $fb_config;
+	private $fb_firstname;
+	private $fb_lastname;
 	private $fb_params;
 	private $fb_username;
 	
@@ -122,9 +124,10 @@ class Taurus {
 		<p align="center">
 			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
 		</p>
-		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){ $this->fbsetup(); ?>
-		<a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){ ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ ?>Signed in as <?php echo $this->fb_username; } ?>.
-		<?php } ?>
+		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){  ?>
+		<h3><p align="center"><a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){  ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ $this->fbsetup(); ?>Signed in as <?php echo "<a href='http://facebook.com/" . $this->fb_username . "'>" . $this->fb_firstname . " " . $this->fb_lastname . "</a>"; } ?>.</p></h3>
+		<?php
+			}?>
 	</body>
 </html>
 <?php
@@ -222,6 +225,8 @@ navbar {
 	function fbsetup(){
 		$user = $this->fb->api('/me');
 		$this->fb_username = $user['username'];
+		$this->fb_firstname = $user['first_name'];
+		$this->fb_lastname = $user['last_name'];
+		return;
 	}
 }
-
