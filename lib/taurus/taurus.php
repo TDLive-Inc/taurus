@@ -201,5 +201,6 @@ navbar {
 		if(@isset($this->username)){
 			$contents=str_replace("{{USERNAME}}", $this->username, $contents);
 		}
+		echo $contents;
 	}
 }
