@@ -105,21 +105,8 @@ class Taurus {
 	}
 	function page404(){
 		header("HTTP/1.1 404 Not Found");
-?>
-<html>
-	<head>
-		<link href="?pid=2" rel="stylesheet" type="text/css" />
-		<title><?php echo constant("TAURUS_NAME"); ?> / 404 Not Found</title>
-	</head>
-	<body>
-	<p align="center"><center>
-		<h1>404 Not Found</h1>
-		<?php echo constant("TAURUS_404TEXT"); ?><br><br>
-		<a href="?pid=1"><?php echo constant("TAURUS_404LINK"); ?></a>
-	</p></center>
-	</body>
-</html>
-<?php
+		$engine = new PagesEngine(-1);
+		$engine->engine();
 	}
 	function pageCSS(){
 ?>
