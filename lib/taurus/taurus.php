@@ -195,9 +195,9 @@ navbar {
 		$contents=str_replace("{{TAURUS_LOG_IN_INCOMPLETE}}", constant("TAURUS_LOG_IN_INCOMPLETE"), $contents);
 		$contents=str_replace("{{TAURUS_MOTTO}}", constant("TAURUS_MOTTO"), $contents);
 		$contents=str_replace("{{TAURUS_HOME}}", constant("TAURUS_HOME"), $contents);
-		$contents=str_replace("{{TAURUS_404TEXT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
-		$contents=str_replace("{{TAURUS_404LINK}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
-		$contents=str_replace("{{TAURUS_LOGOUT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
+		$contents=str_replace("{{TAURUS_404TEXT}}", constant("TAURUS_404TEXT"), $contents);
+		$contents=str_replace("{{TAURUS_404LINK}}", constant("TAURUS_404LINK"), $contents);
+		$contents=str_replace("{{TAURUS_LOGOUT}}", constant("TAURUS_LOGOUT"), $contents);
 		if(@isset($this->username)){
 			$contents=str_replace("{{USERNAME}}", $this->username, $contents);
 		}
