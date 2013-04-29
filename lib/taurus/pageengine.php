@@ -1,6 +1,6 @@
 <?php
 
-class PageEngine extends Taurus {
+class PageEngine {
 	public $page;
 	function __construct($page){
 		if(! file_exists("../../pages/$page.page")){
