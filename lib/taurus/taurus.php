@@ -184,7 +184,7 @@ navbar {
 		return;
 	}
 	function pageengine($page){
-		if(! $contents=file_get_contents("../../pages/" . $page . ".page")){
+		if(! $contents=file_get_contents("pages/" . $page . ".page")){
 			die("TranslationsEngine: Cannot access " . $page . ".");
 		}
 		#Here comes the fun part
