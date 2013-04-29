@@ -17,8 +17,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-require('lib/phpass/PasswordHash.php');
 require('lib/facebook/facebook.php');
+require('lib/taurus/pageengine.php');
+require('lib/phpass/PasswordHash.php');
 
 class Taurus {
 
