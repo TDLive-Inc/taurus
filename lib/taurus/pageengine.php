@@ -23,5 +23,8 @@ class PageEngine extends Taurus {
 		$contents=str_replace("{{TAURUS_404TEXT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
 		$contents=str_replace("{{TAURUS_404LINK}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
 		$contents=str_replace("{{TAURUS_LOGOUT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
+		if(@isset(Taurus::$username)){
+			$contents=str_replace("{{USERNAME}}", Taurus::$username, $contents);
+		}
 	}
 }

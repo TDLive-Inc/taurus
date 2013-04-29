@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<link href="?pid=2" rel="stylesheet" type="text/css">
+		<title>{{TAURUS_NAME}} / {{TAURUS_HOME}}</title>
+	</head>
+	<body>
+		<div style="align: center;" id="navbar">
+			<a href="?pid=1">
+				<img src="img/logos/97x46.png" alt="Project Taurus"></img>
+			</a>
+			 | <a href="?pid=4">{{TAURUS_LOGOUT}}</a>
+		</div>
+		<p align="center">
+			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
+		</p>

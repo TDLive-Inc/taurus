@@ -92,22 +92,9 @@ class Taurus {
 		exit;
 	}
 	function pageHome($info){
+		$engine = new PagesEngine("1.header");
+		$engine->engine();
 ?>
-<html>
-	<head>
-		<link href="?pid=2" rel="stylesheet" type="text/css">
-		<title><?php echo constant("TAURUS_NAME") . " / " . constant("TAURUS_HOME"); ?></title>
-	</head>
-	<body>
-		<div style="align: center;" id="navbar">
-			<a href="?pid=1">
-				<img src="img/logos/97x46.png" alt="Project Taurus"></img>
-			</a>
-			 | <a href="?pid=4"><?php echo constant("TAURUS_LOGOUT"); ?></a>
-		</div>
-		<p align="center">
-			<img src="img/logos/288x135.png" alt="Project Taurus"></img>
-		</p>
 		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){  ?>
 		<h3><p align="center"><a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){  ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ $this->fbsetup(); ?>Signed in as <?php echo "<a href='http://facebook.com/" . $this->fb_username . "'>" . $this->fb_firstname . " " . $this->fb_lastname . "</a>"; } ?>.</p></h3>
 		<?php
