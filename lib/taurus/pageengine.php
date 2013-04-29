@@ -8,9 +8,9 @@ class PageEngine extends Taurus {
 		}
 		$this->page = $page;
 	}
-	function engine($page){
-		if(! $contents=file_get_contents("../../pages/$page.page")){
-			die("TranslationsEngine: Cannot access $page.";
+	function engine(){
+		if(! $contents=file_get_contents("../../pages/" . $this->page . ".page")){
+			die("TranslationsEngine: Cannot access " . $this->page . ".");
 		}
 		#Here comes the fun part
 		$contents=str_replace("{{TAURUS_NAME}}", constant("TAURUS_NAME"), $contents);

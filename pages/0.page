@@ -1,0 +1,15 @@
+<html>
+	<head>
+				<link href='?pid=2' rel='stylesheet' type='text/css' />
+		<title>{{TAURUS_NAME}} / {{TAURUS_LOG_IN}}/title>
+	</head>
+	<body>
+		<center><p align="center" style="font-family: 'Bubblegum Sans', cursive;"><h1><img src="img/logos/288x135.png"></h1><b><i>{{TAURUS_MOTTO}} ?></i></b></p><h2>{{TAURUS_LOG_IN}}</h2><br>
+			<form action="?login=true" method="POST">
+				<input type="text" name="user" />
+				<input type="password" name="pass" />
+				<input type="submit" value="Log in" />
+			</form>
+		</center>
+	</body>
+</html>
