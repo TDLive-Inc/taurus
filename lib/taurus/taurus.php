@@ -87,25 +87,8 @@ class Taurus {
 		return file_get_contents("posts/$id.txt");
 	}
 	function pageLogin($error){
-?>
-<html>
-	<head>
-				<link href='?pid=2' rel='stylesheet' type='text/css' />
-		<title><?php echo constant("TAURUS_NAME") . ' / ' . constant("TAURUS_LOG_IN"); ?></title>
-	</head>
-	<body>
-		<center><p align="center" style="font-family: ' . "'Bubblegum Sans'" . ', cursive;"><h1><img src="img/logos/288x135.png"></h1><b><i><?php echo constant("TAURUS_MOTTO"); ?></i></b></p><h2><?php echo constant("TAURUS_LOG_IN"); ?></h2><br>
-		<?php if(isset($error)) {
-			echo '<font color="red">' . $error . '</font>';
-		} ?>
-			<form action="?login=true" method="POST">
-				<input type="text" name="user" />
-				<input type="password" name="pass" />
-				<input type="submit" value="Log in" />
-			</form>
-		</center>
-	</body>
-</html><?php
+		$engine = new PagesEngine(0);
+		$engine->engine();
 		exit;
 	}
 	function pageHome($info){
