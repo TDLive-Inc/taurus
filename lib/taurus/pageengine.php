@@ -1,6 +1,6 @@
 <?php
 
-class PageEngine {
+class PagesEngine {
 	public $page;
 	function __construct($page){
 		if(! file_exists("../../pages/$page.page")){
