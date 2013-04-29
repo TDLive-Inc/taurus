@@ -86,13 +86,11 @@ class Taurus {
 		return file_get_contents("posts/$id.txt");
 	}
 	function pageLogin($error){
-		$engine = new PagesEngine(0);
-		$engine->engine();
+		$this->pageengine(0);
 		exit;
 	}
 	function pageHome($info){
-		$engine = new PagesEngine("1.header");
-		$engine->engine();
+		$this->pageengine("1.header");
 ?>
 		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){  ?>
 		<h3><p align="center"><a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){  ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ $this->fbsetup(); ?>Signed in as <?php echo "<a href='http://facebook.com/" . $this->fb_username . "'>" . $this->fb_firstname . " " . $this->fb_lastname . "</a>"; } ?>.</p></h3>
@@ -104,8 +102,7 @@ class Taurus {
 	}
 	function page404(){
 		header("HTTP/1.1 404 Not Found");
-		$engine = new PagesEngine(-1);
-		$engine->engine();
+		$this->pageengine(-1);
 	}
 	function pageCSS(){
 ?>
@@ -186,19 +183,9 @@ navbar {
 		$this->fb_lastname = $user['last_name'];
 		return;
 	}
-}
-
-class PagesEngine {
-	public $page;
-	function __construct($page){
-		if(! file_exists("../../pages/$page.page")){
-			die("TranslationsEngine: Page $page does NOT exist.");
-		}
-		$this->page = $page;
-	}
-	function engine(){
-		if(! $contents=file_get_contents("../../pages/" . $this->page . ".page")){
-			die("TranslationsEngine: Cannot access " . $this->page . ".");
+	function pageengine($page){
+		if(! $contents=file_get_contents("../../pages/" . $page . ".page")){
+			die("TranslationsEngine: Cannot access " . $page . ".");
 		}
 		#Here comes the fun part
 		$contents=str_replace("{{TAURUS_NAME}}", constant("TAURUS_NAME"), $contents);
@@ -211,8 +198,8 @@ class PagesEngine {
 		$contents=str_replace("{{TAURUS_404TEXT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
 		$contents=str_replace("{{TAURUS_404LINK}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
 		$contents=str_replace("{{TAURUS_LOGOUT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
-		if(@isset(Taurus::$username)){
-			$contents=str_replace("{{USERNAME}}", Taurus::$username, $contents);
+		if(@isset($this->username)){
+			$contents=str_replace("{{USERNAME}}", $this->username, $contents);
 		}
 	}
 }
