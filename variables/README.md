@@ -1,5 +1,5 @@
 # Project Taurus Variables/Constants
 
-...in [Facebook](/TDLive-Inc/taurus/tree/doc/variables/facebook)
+...in [Facebook](/variables/facebook)
 
-...in the [settings](/TDLive-Inc/taurus/tree/doc/variables/settings)
+...in the [settings](/variables/settings)
