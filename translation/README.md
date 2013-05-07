@@ -2,9 +2,7 @@
 
 ## Creating your language's translations
 
-1. copy en_US.php in /translations to 1.2
-
-Where 1 is the first two letters of your language name (in the language to be translated) in lowercase and 2 is the first two letters of your country (in the language to be translated) in UPPERCASE.
+1. copy en_US.php in /translations to 1.2, where 1 is the first two letters of your language name (in the language to be translated) in lowercase and 2 is the first two letters of your country (in the language to be translated) in UPPERCASE.
 
 2. Edit the file to your needs. Language constants are defined below
 
