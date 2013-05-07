@@ -2,7 +2,7 @@
 
 ## Creating your language's translations
 
-1. copy en_US.php in /translations to first_two_letters_of_your_language_name_in_your native_language.FIRST_TWO_LETTERS_OF_YOUR_COUNTRY_IN_YOUR_NATIVE_LANGUAGE.
+1. copy en_US.php in /translations to 1.2
 
 Where 1 is the first two letters of your language name (in the language to be translated) in lowercase and 2 is the first two letters of your country (in the language to be translated) in UPPERCASE.
 
