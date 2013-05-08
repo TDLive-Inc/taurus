@@ -19,16 +19,16 @@
 
 class Translation extends Taurus {
 	function __construct(){
-		define('TAURUS_TRANSLATION_VALUE', 'VALUE');
-		define('TAURUS_NAME', 'Taurus');
-		define('TAURUS_LOG_IN', 'Log in');
-		define('TAURUS_LOG_IN_INCORRECT', 'Log in incorrect!!');
-		define('TAURUS_LOG_IN_INCOMPLETE', 'Log in form incomplete. Please complete this form and try again.');
-		define('TAURUS_MOTTO', 'All your social networking in one place.');
-		define('TAURUS_HOME', 'Home');
-		define('TAURUS_404TEXT', "We're sorry, but the page you were looking for wasn't found.");
-		define('TAURUS_404LINK', 'Go back to the home page');
-		define('TAURUS_LOGOUT', 'Log out');
+		define('TAURUS_LANG_TRANSLATION_VALUE', 'VALUE');
+		define('TAURUS_LANG_NAME', 'Taurus');
+		define('TAURUS_LANG_LOG_IN', 'Log in');
+		define('TAURUS_LANG_LOG_IN_INCORRECT', 'Log in incorrect!!');
+		define('TAURUS_LANG_LOG_IN_INCOMPLETE', 'Log in form incomplete. Please complete this form and try again.');
+		define('TAURUS_LANG_MOTTO', 'All your social networking in one place.');
+		define('TAURUS_LANG_HOME', 'Home');
+		define('TAURUS_LANG_404TEXT', "We're sorry, but the page you were looking for wasn't found.");
+		define('TAURUS_LANG_404LINK', 'Go back to the home page');
+		define('TAURUS_LANG_LOGOUT', 'Log out');
 	}
 }
 ?>
