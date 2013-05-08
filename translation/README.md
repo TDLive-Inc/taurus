@@ -2,7 +2,7 @@
 
 ## Creating your language's translations
 
-1. copy en_US.php in /translations to 1.2, where 1 is the first two letters of your language name (in the language to be translated) in lowercase and 2 is the first two letters of your country (in the language to be translated) in UPPERCASE.
+1. copy en_US.php in /translations to 1.2.php, where 1 is the first two letters of your language name (in the language to be translated) in lowercase and 2 is the first two letters of your country (in the language to be translated) in UPPERCASE.
 
 2. Edit the file to your needs. Language constants are defined below
 
@@ -65,3 +65,23 @@ In English: Go back to the home page
 Button to log out
 
 In English: Log out
+
+## TAURUS_LANG_FACEBOOK
+
+Facebook's name.
+
+In English: Facebook
+
+## TAURUS_LANG_FACEBOOK_LOGIN
+
+Text prompting the user to log into Facebook.
+
+In English: Log into Facebook
+
+## TAURUS_LANG_FACEBOOK_SIGNED_IN_AS
+
+Text telling the user who (s)he is signed in as.
+
+In English: Signed in as 
+
+NOTE: Remember the space at the end!
