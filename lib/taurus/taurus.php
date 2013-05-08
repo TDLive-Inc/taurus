@@ -185,19 +185,19 @@ navbar {
 	}
 	function pageengine($page){
 		if(! $contents=file_get_contents("pages/" . $page . ".page")){
-			die("TranslationsEngine: Cannot access " . $page . ".");
+			die("pageengine: Cannot access " . $page . ".");
 		}
 		#Here comes the fun part
-		$contents=str_replace("{{TAURUS_NAME}}", constant("TAURUS_NAME"), $contents);
-		$contents=str_replace("{{TAURUS_LOG_IN}}", constant("TAURUS_LOG_IN"), $contents);
-		$contents=str_replace("{{TAURUS_NAME}}", constant("TAURUS_NAME"), $contents);
-		$contents=str_replace("{{TAURUS_LOG_IN_INCORRECT}}", constant("TAURUS_LOG_IN_INCORRECT"), $contents);
-		$contents=str_replace("{{TAURUS_LOG_IN_INCOMPLETE}}", constant("TAURUS_LOG_IN_INCOMPLETE"), $contents);
-		$contents=str_replace("{{TAURUS_MOTTO}}", constant("TAURUS_MOTTO"), $contents);
-		$contents=str_replace("{{TAURUS_HOME}}", constant("TAURUS_HOME"), $contents);
-		$contents=str_replace("{{TAURUS_404TEXT}}", constant("TAURUS_404TEXT"), $contents);
-		$contents=str_replace("{{TAURUS_404LINK}}", constant("TAURUS_404LINK"), $contents);
-		$contents=str_replace("{{TAURUS_LOGOUT}}", constant("TAURUS_LOGOUT"), $contents);
+		$contents=str_replace("{{TAURUS_NAME}}", constant("TAURUS_LANG_NAME"), $contents);
+		$contents=str_replace("{{TAURUS_LOG_IN}}", constant("TAURUS_LANG_LOG_IN"), $contents);
+		$contents=str_replace("{{TAURUS_NAME}}", constant("TAURUS_LANG_NAME"), $contents);
+		$contents=str_replace("{{TAURUS_LOG_IN_INCORRECT}}", constant("TAURUS_LANG_LOG_IN_INCORRECT"), $contents);
+		$contents=str_replace("{{TAURUS_LOG_IN_INCOMPLETE}}", constant("TAURUS_LANG_LOG_IN_INCOMPLETE"), $contents);
+		$contents=str_replace("{{TAURUS_MOTTO}}", constant("TAURUS_LANG_MOTTO"), $contents);
+		$contents=str_replace("{{TAURUS_HOME}}", constant("TAURUS_LANG_HOME"), $contents);
+		$contents=str_replace("{{TAURUS_404TEXT}}", constant("TAURUS_LANG_404TEXT"), $contents);
+		$contents=str_replace("{{TAURUS_404LINK}}", constant("TAURUS_LANG_404LINK"), $contents);
+		$contents=str_replace("{{TAURUS_LOGOUT}}", constant("TAURUS_LANG_LOGOUT"), $contents);
 		if(@isset($this->username)){
 			$contents=str_replace("{{USERNAME}}", $this->username, $contents);
 		}
