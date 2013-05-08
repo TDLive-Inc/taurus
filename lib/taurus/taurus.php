@@ -93,7 +93,7 @@ class Taurus {
 		$this->pageengine("1.header");
 ?>
 		<?php if(constant("TAURUS_FACEBOOK_ENABLED")){  ?>
-		<h3><p align="center"><a href="http://facebook.com/">Facebook</a> | <?php if($this->fb->getUser() == 0){  ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>">Log in to Facebook</a><?php } else{ $this->fbsetup(); ?>Signed in as <?php echo "<a href='http://facebook.com/" . $this->fb_username . "'>" . $this->fb_firstname . " " . $this->fb_lastname . "</a>"; } ?>.</p></h3>
+		<h3><p align="center"><a href="http://facebook.com/"><?php echo constant("TAURUS_FACEBOOK"); ?></a> | <?php if($this->fb->getUser() == 0){  ?><a href="<?php echo $this->fb->getLoginUrl($this->fb_params); ?>"><?php echo constant("TAURUS_LANG_FACEBOOK_LOGIN"); ?></a><?php } else{ $this->fbsetup(); echo constant("TAURUS_LANG_FACEBOOK_SIGNED_IN_AS") . "<a href='http://facebook.com/" . $this->fb_username . "'>" . $this->fb_firstname . " " . $this->fb_lastname . "</a>"; } ?>.</p></h3>
 		<?php
 			}?>
 	</body>
